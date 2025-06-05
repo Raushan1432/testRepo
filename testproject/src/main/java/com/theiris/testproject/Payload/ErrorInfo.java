@@ -6,6 +6,14 @@ import java.util.Date;
 public class ErrorInfo {
     private Date date;
     private String msg;
+    private String desc;
+
+    public ErrorInfo(Date date, String msg, String desc) {
+        this.date = date;
+        this.msg = msg;
+        this.desc = desc;
+    }
+
 
     public String getDesc() {
         return desc;
@@ -29,14 +37,6 @@ public class ErrorInfo {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    private String desc;
-
-    public ErrorInfo(Date date, String msg, String desc) {
-        this.date = date;
-        this.msg = msg;
-        this.desc = desc;
     }
 
 

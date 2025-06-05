@@ -7,7 +7,7 @@ import com.theiris.testproject.Exception.UserAlreadyExist;
 import com.theiris.testproject.Repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.Optional;
 

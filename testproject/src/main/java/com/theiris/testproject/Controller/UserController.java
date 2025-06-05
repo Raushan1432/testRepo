@@ -5,6 +5,7 @@ import com.theiris.testproject.Dto.LoginDto;
 import com.theiris.testproject.Dto.UserDTO;
 import com.theiris.testproject.Entity.User;
 import com.theiris.testproject.Service.UserService;
+import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.apache.el.parser.Token;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,7 @@ public class UserController {
 
 
     @PostMapping("/addUser")
-    public ResponseEntity<?> addUser(@RequestBody UserDTO dto){
+    public ResponseEntity<?> addUser(@Valid  @RequestBody UserDTO dto){
         UserDTO savedUser = userService.addUser(dto);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
