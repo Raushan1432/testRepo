@@ -21,18 +21,26 @@ public class JWTService {
     private Algorithm algorithm;
 
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         algorithm = Algorithm.HMAC256(algorithmkey);
     }
-
-    public String generateToken(String username){
-       return JWT.create().withClaim("username",username)
-                .withExpiresAt(new Date(System.currentTimeMillis()+expiryduration))
+    public String generateToken(String username) {
+        return JWT.create().withClaim("username", username)
+                .withExpiresAt(new Date(System.currentTimeMillis() + expiryduration))
                 .withIssuer(issuer)
                 .sign(algorithm);
     }
 
-
-
+    public String extractUserDetails(String token) {
+        return JWT.require(algorithm)
+                .withIssuer(issuer)
+                .build()
+                .verify(token)
+                .getClaim("username")
+                .asString();
+    }
 
 }
+
+
+

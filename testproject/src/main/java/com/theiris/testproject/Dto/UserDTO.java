@@ -1,6 +1,6 @@
 package com.theiris.testproject.Dto;
 
-import jakarta.validation.constraints.Min;
+
 import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,9 +10,7 @@ import org.hibernate.validator.constraints.Length;
 @Getter
 @Setter
 public class UserDTO {
-
     private String id;
-
     @NotBlank(message = "Username is required")
     private String username;
 
@@ -24,6 +22,7 @@ public class UserDTO {
     private String phone;
 
 
+    @NotBlank(message="password must be require")
     @Pattern(
             regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
             message = "Password must be at least 8 characters long and include uppercase, lowercase, number, and special character"
